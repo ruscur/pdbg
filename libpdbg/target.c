@@ -481,3 +481,11 @@ struct pdbg_target *target_to_real(struct pdbg_target *target)
 
 	return target;
 }
+
+struct pdbg_target *target_to_virtual(struct pdbg_target *target)
+{
+	if (target->compatible && target->vnode)
+		return target->vnode;
+
+	return target;
+}
